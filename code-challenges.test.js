@@ -17,14 +17,6 @@
 
 // a) Create a test with an expect statement using the variables provided.
 
-// var secretCodeWord1 = "Lackadaisical"
-// // Expected output: "L4ck4d41s1c4l"
-// var secretCodeWord2 = "Gobbledygook"
-// // Expected output: "G0bbl3dyg00k"
-// var secretCodeWord3 = "Eccentric"
-// // Expected output: "3cc3ntr1c"
-
-// a describe method that lists the name of the function OR naming of the particular test.
 describe("codedMessage", () => {
     test("takes in a string and converts letters a to 4 e to 3 i to 1 and o to 0 and returns a new string", () => {
         let secretCodeWord1 = "Lackadaisical"
@@ -48,11 +40,13 @@ describe("codedMessage", () => {
     // reasign the value of that specific element in the array to the respective coded value (4, 3, 1 or 0)
 
 const codedMessage = (str) => {
-    let myArr = str.split('')
-    let codedArr = myArr.map(item =>
-        item === 'a' || item === 'A' ? item = '4' : item === 'e' || item === 'E' ? item = '3' : item === 'i' || item === 'I' ? item = '1' : item === 'o' || item === 'O' ? item = '0' : item
-    )
-    return codedArr.join('')
+    return str.split('').map(item =>
+        item === 'a' || item === 'A' ? item = '4' : 
+        item === 'e' || item === 'E' ? item = '3' : 
+        item === 'i' || item === 'I' ? item = '1' : 
+        item === 'o' || item === 'O' ? item = '0' : 
+        item
+    ).join('')
 }
 
 
