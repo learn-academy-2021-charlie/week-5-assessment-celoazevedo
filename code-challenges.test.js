@@ -1,5 +1,7 @@
 // ASSESSMENT 5: JavaScript Coding Practical Questions with Jest
 
+const { INTERNAL_MATCHER_FLAG } = require("expect/build/jestMatchersObject")
+
 // Please read all questions thoroughly
 // Pseudo coding is REQUIRED
 // If you get stuck, please leave comments to help us understand your thought process
@@ -30,8 +32,9 @@ describe("codedMessage", () => {
         expect(codedMessage(secretCodeWord3)).toEqual("3cc3ntr1c")
     })
 })
-//  Create a function that takes in a string and returns a coded message. The coded message converts 'a' to 4, 'e' to 3, 'i' to 1, and 'o' to 0.
+
 // b) Create the function that makes the test pass.
+
 // --> Pseudo Code
     // create a function that takes a string as an argument
     // declare a variable and assign the value of the string converted into an array -- use the .split('') string built in method
@@ -49,21 +52,39 @@ const codedMessage = (str) => {
     ).join('')
 }
 
-
 // --------------------2) Create a function that takes in an array and returns all the words that contain the letter a.
 
 // a) Create a test with an expect statement using the variable provided.
 
-var arrayOfWords1 = ["Apple", "Banana", "Plum", "Orange", "Kiwi"]
-// Expected output: ["Apple", "Banana", "Orange"]
-var arrayOfWords2 = ["Mango", "Cherry", "Apricot", "Blueberry", "Peach"]
-// Expected output: ["Mango", "Apricot", "Peach"]
+// var arrayOfWords1 = ["Apple", "Banana", "Plum", "Orange", "Kiwi"]
+// // Expected output: ["Apple", "Banana", "Orange"]
+// var arrayOfWords2 = ["Mango", "Cherry", "Apricot", "Blueberry", "Peach"]
+// // Expected output: ["Mango", "Apricot", "Peach"]
 
-
+describe("countainLetterA", () => {
+    test("takes in an array of strings and returns all of the words that contains the letter a", () => {
+        let arrayOfWords1 = ["Apple", "Banana", "Plum", "Orange", "Kiwi"]
+        // Expected output: ["Apple", "Banana", "Orange"]
+        let arrayOfWords2 = ["Mango", "Cherry", "Apricot", "Blueberry", "Peach"]
+        // Expected output: ["Mango", "Apricot", "Peach"]
+        expect(countainLetterA(arrayOfWords1)).toEqual(["Apple", "Banana", "Orange"])
+        expect(countainLetterA(arrayOfWords2)).toEqual(["Mango", "Apricot", "Peach"])
+    })
+})
 
 // b) Create the function that makes the test pass.
 
+// --> Pseudo Code
+    // create a function that takes in an array as an argument
+    // iterate through the array accessing each element -- maybe able to use .filter()
+    // humm.. i wonder if JS has a .include? method (thinking in Ruby right now...) 
+        //! and JS does have an .includes() method. Also added an OR condition inside the filter to check for capital letter A
+    // ... this way we can use the method to check if the word includes the letter a or A
+    // and return an array with only the words that have a letter a or A
 
+const countainLetterA = (arr) => {
+    return arr.filter((item) => item.includes('a') || item.includes('A'))
+}
 
 // --------------------3) Create a function that takes in an array of 5 numbers and determines whether or not the array is a “full house”. A full house is exactly one pair and one three of a kind.
 
