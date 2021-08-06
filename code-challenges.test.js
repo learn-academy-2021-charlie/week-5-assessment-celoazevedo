@@ -56,11 +56,6 @@ const codedMessage = (str) => {
 
 // a) Create a test with an expect statement using the variable provided.
 
-// var arrayOfWords1 = ["Apple", "Banana", "Plum", "Orange", "Kiwi"]
-// // Expected output: ["Apple", "Banana", "Orange"]
-// var arrayOfWords2 = ["Mango", "Cherry", "Apricot", "Blueberry", "Peach"]
-// // Expected output: ["Mango", "Apricot", "Peach"]
-
 describe("countainLetterA", () => {
     test("takes in an array of strings and returns all of the words that contains the letter a", () => {
         let arrayOfWords1 = ["Apple", "Banana", "Plum", "Orange", "Kiwi"]
@@ -97,6 +92,44 @@ var hand2 = [5, 5, 3, 3, 4]
 var hand3 = [5, 5, 5, 5, 4]
 // Expected output: false
 
-
-
+describe("isFullHouse", () => {
+    test("check if the array is a full house and returns a boolean", () => {
+        let hand1 = [5, 5, 5, 3, 3]
+        // Expected output: true
+        let hand2 = [5, 5, 3, 3, 4]
+        // Expected output: false
+        let hand3 = [5, 5, 5, 5, 4]
+        // Expected output: false
+        expect(isFullHouse(hand1)).toEqual(true)
+        expect(isFullHouse(hand2)).toEqual(false)
+        expect(isFullHouse(hand3)).toEqual(false)
+    })
+  })
+  
 // b) Create the function that makes the test pass.
+// Create a function that takes in an array of 5 numbers and determines whether or not the array is a “full house”. A full house is exactly one pair and one three of a kind.
+// --> Pseudo Code
+    // create a function that takes in an array as an argument
+    // iterate through the array and check each element - use the forEach() higher order function
+
+    ///// initial approach....
+    // use a counter to check the number of instances of each element
+    // use the value from the counter (ex: counter1 = 3, and counter2 = 2) to check if we have a full house! 
+
+    ///// ... i found this snipet online in which we are declaring a variable counts and assigning an empty object. we apply the forEach method to iterate through the array and for every item in the array we store the item as a key in the counts object and we count the occurances of the item and store as the value of the key. 
+    // now I can check for the key values in the counts object (Object.values(counts)) --> this returns an array. 
+    // we can iterate through the values array (numOfsameItemsArr) for the presence of an element with the value of 2 and the value of 3!!!
+    // return true is the array includes 2 and includes 3. else return false
+
+const isFullHouse = (arr) => {
+    let counts = {}
+    // populate the counts object with the element value as the key and the number of occurances as the value.
+    arr.forEach((item) => { counts[item] = (counts[item] || 0) + 1 })
+    // console.log(counts)
+    // console.log(Object.keys(counts))
+    // create an array with only the number of occurances of each element -- just the values of the counts object.
+    let numOfsameItemsArr = Object.values(counts)
+    return numOfsameItemsArr.includes(2) 
+        && numOfsameItemsArr.includes(3) 
+        ? true : false
+}
