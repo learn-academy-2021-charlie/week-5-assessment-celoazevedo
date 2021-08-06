@@ -17,17 +17,43 @@
 
 // a) Create a test with an expect statement using the variables provided.
 
-var secretCodeWord1 = "Lackadaisical"
-// Expected output: "L4ck4d41s1c4l"
-var secretCodeWord2 = "Gobbledygook"
-// Expected output: "G0bbl3dyg00k"
-var secretCodeWord3 = "Eccentric"
-// Expected output: "3cc3ntr1c"
+// var secretCodeWord1 = "Lackadaisical"
+// // Expected output: "L4ck4d41s1c4l"
+// var secretCodeWord2 = "Gobbledygook"
+// // Expected output: "G0bbl3dyg00k"
+// var secretCodeWord3 = "Eccentric"
+// // Expected output: "3cc3ntr1c"
 
-
-
+// a describe method that lists the name of the function OR naming of the particular test.
+describe("codedMessage", () => {
+    test("takes in a string and converts letters a to 4 e to 3 i to 1 and o to 0 and returns a new string", () => {
+        let secretCodeWord1 = "Lackadaisical"
+        // Expected output: "L4ck4d41s1c4l"
+        let secretCodeWord2 = "Gobbledygook"
+        // Expected output: "G0bbl3dyg00k"
+        let secretCodeWord3 = "Eccentric"
+        // Expected output: "3cc3ntr1c"
+        expect(codedMessage(secretCodeWord1)).toEqual("L4ck4d41s1c4l")
+        expect(codedMessage(secretCodeWord2)).toEqual("G0bbl3dyg00k")
+        expect(codedMessage(secretCodeWord3)).toEqual("3cc3ntr1c")
+    })
+})
+//  Create a function that takes in a string and returns a coded message. The coded message converts 'a' to 4, 'e' to 3, 'i' to 1, and 'o' to 0.
 // b) Create the function that makes the test pass.
+// --> Pseudo Code
+    // create a function that takes a string as an argument
+    // declare a variable and assign the value of the string converted into an array -- use the .split('') string built in method
+    // iterate through the array using the .map() array built in method
+    // check if each element of the array is equals to 'a', 'e', 'i' or 'o'. Remember to check for capital letters! using conditional statements. I am going to try to use the ternary operators syntax to check for the condition and reasign the value (accordingly) for the elements that check the conditions
+    // reasign the value of that specific element in the array to the respective coded value (4, 3, 1 or 0)
 
+const codedMessage = (str) => {
+    let myArr = str.split('')
+    let codedArr = myArr.map(item =>
+        item === 'a' || item === 'A' ? item = '4' : item === 'e' || item === 'E' ? item = '3' : item === 'i' || item === 'I' ? item = '1' : item === 'o' || item === 'O' ? item = '0' : item
+    )
+    return codedArr.join('')
+}
 
 
 // --------------------2) Create a function that takes in an array and returns all the words that contain the letter a.
