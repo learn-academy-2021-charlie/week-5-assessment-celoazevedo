@@ -1,7 +1,5 @@
 // ASSESSMENT 5: JavaScript Coding Practical Questions with Jest
 
-const { INTERNAL_MATCHER_FLAG } = require("expect/build/jestMatchersObject")
-
 // Please read all questions thoroughly
 // Pseudo coding is REQUIRED
 // If you get stuck, please leave comments to help us understand your thought process
@@ -84,13 +82,6 @@ const countainLetterA = (arr) => {
 // --------------------3) Create a function that takes in an array of 5 numbers and determines whether or not the array is a “full house”. A full house is exactly one pair and one three of a kind.
 
 // a) Create a test with an expect statement using the variable provided.
-
-var hand1 = [5, 5, 5, 3, 3]
-// Expected output: true
-var hand2 = [5, 5, 3, 3, 4]
-// Expected output: false
-var hand3 = [5, 5, 5, 5, 4]
-// Expected output: false
 
 describe("isFullHouse", () => {
     test("check if the array is a full house and returns a boolean", () => {
