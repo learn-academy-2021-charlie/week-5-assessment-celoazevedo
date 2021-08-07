@@ -120,6 +120,7 @@ const isFullHouse = (arr) => {
     // console.log(Object.keys(counts))
     // create an array with only the number of occurances of each element -- just the values of the counts object.
     let numOfsameItemsArr = Object.values(counts)
+    // now we can check if the array includes two elements, one with a value of 2 and another with a value of 3. if it does, it is a full house -> return true, else return false.
     return numOfsameItemsArr.includes(2) 
         && numOfsameItemsArr.includes(3) 
         ? true : false
