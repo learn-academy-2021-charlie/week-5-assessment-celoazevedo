@@ -110,6 +110,7 @@ describe("isFullHouse", () => {
     ///// ... i found this snipet online in which we are declaring a variable counts and assigning an empty object. we apply the forEach method to iterate through the array and for every item in the array we store the item as a key in the counts object and we count the occurances of the item and store as the value of the key. 
     // now I can check for the key values in the counts object (Object.values(counts)) --> this returns an array. 
     // we can iterate through the values array (numOfsameItemsArr) for the presence of an element with the value of 2 and the value of 3!!!
+    // - instead of iterating, I used the bulit in method .includes to check for the presence of the elements 2 and 3 in the array.
     // return true is the array includes 2 and includes 3. else return false
 
 const isFullHouse = (arr) => {
